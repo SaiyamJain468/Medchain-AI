@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --bg-primary: #020202;
+    --accent-primary: #39FF14;
+    --accent-secondary: #FF006E;
+    --text-primary: #F2F2F2;
+    --text-secondary: #444;
+  }
+
+  /* Responsive Font Sizes */
+  h1, .font-bebas, .bebas {
+    @apply leading-[0.85] tracking-tighter uppercase;
+    overflow-wrap: anywhere;
+    word-break: break-all; /* Force breaks for underscore-linked cyberpunk strings */
+  }
+
+  .text-huge {
+    font-size: clamp(1.75rem, 10vw, 8.75rem); /* Scalable from 28px to 140px */
+  }
+
+  .text-large {
+    font-size: clamp(1.35rem, 8vw, 5rem); /* Scalable from 21.6px to 80px */
+  }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 
 :root {

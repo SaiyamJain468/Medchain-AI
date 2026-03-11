@@ -122,9 +122,9 @@ export default function LoginPage() {
             animate={{ opacity: 1, y: 0 }}
             className="w-full max-w-sm flex flex-col gap-10"
         >
-            <div className="flex flex-col gap-2">
-                <h3 className="font-bebas text-4xl text-white tracking-[1px]">IDENTITY_VERIFY</h3>
-                <span className="text-[9px] text-[#444] tracking-[2px] uppercase">Please terminate active sessions before login.</span>
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+                <h3 className="font-bebas text-3xl sm:text-4xl text-white tracking-[1px]">IDENTITY_VERIFY</h3>
+                <span className="text-[8px] sm:text-[9px] text-[#444] tracking-[1px] sm:tracking-[2px] uppercase">Please terminate active sessions before login.</span>
             </div>
 
             {/* ROLE TABS */}
@@ -133,7 +133,7 @@ export default function LoginPage() {
                     <button
                         key={role}
                         onClick={() => setActiveRole(role)}
-                        className={`flex-1 py-3 text-[10px] font-bold tracking-[2px] transition-all relative ${
+                        className={`flex-1 py-3 text-[8px] sm:text-[10px] font-bold tracking-[1px] sm:tracking-[2px] transition-all relative ${
                             activeRole === role ? "text-[#39FF14]" : "text-[#333] hover:text-[#444]"
                         }`}
                     >

@@ -56,23 +56,23 @@ export default function DashboardPage() {
             <Tag className="bg-[#0D2B05] text-[#39FF14] border-none text-[9px] px-2">AUTH_NODE_V2.4</Tag>
             <span className="text-[#333] font-mono text-[10px] truncate">{`// SESSION_ID: 4x29A_883Z`}</span>
          </div>
-         <h1 className="text-large md:text-5xl font-bebas tracking-[1px] text-white break-all leading-tight">
+         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[100px] font-bebas tracking-[1px] text-white break-all leading-tight">
            COMMAND_<span className="text-[#39FF14]">CENTRAL</span>
          </h1>
        </div>
 
-        <div className="flex flex-col items-end gap-2 text-right">
+        <div className="flex flex-col sm:flex-row md:flex-col sm:items-center md:items-end justify-between gap-4 text-left md:text-right w-full md:w-auto mt-4 md:mt-0">
            <div className="flex items-center gap-2 font-mono text-[10px] text-[#444]">
               <Clock size={10} />
               <span>{currentTime || "INITIALIZING_CLOCK..."}</span>
            </div>
-           <div className="flex items-center gap-4">
-              <div className="flex flex-col items-end">
+           <div className="flex flex-wrap items-center justify-between sm:justify-end gap-4 w-full sm:w-auto">
+              <div className="flex flex-col items-start sm:items-end">
                   <span className="text-[9px] font-mono text-[#333]">LAST_DATA_REFRESH</span>
                   <span className="text-[10px] font-mono text-[#39FF14]">0.42s_AGO</span>
               </div>
-              <div className="w-px h-8 bg-[#0E0E0E]" />
-              <Button size="sm" variant="secondary" className="px-4 bg-[#060606] border-[#0E0E0E] text-[10px]">
+              <div className="hidden sm:block w-px h-8 bg-[#0E0E0E]" />
+              <Button size="sm" variant="secondary" className="px-4 bg-[#060606] border-[#0E0E0E] text-[10px] whitespace-nowrap w-full sm:w-auto">
                   REFRESH_LIVE_FEED
               </Button>
            </div>

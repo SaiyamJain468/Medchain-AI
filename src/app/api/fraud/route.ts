@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectMongoDB } from "../../../../lib/mongodb";
-import { FraudReport } from "../../../../models/FraudReport";
+import dbConnect from "@/lib/mongodb";
+import { FraudReport } from "@/models/FraudReport";
 
 export async function GET() {
     try {
-        await connectMongoDB();
+        await dbConnect();
 
         // Fetch all fraud reports
         const reports = await FraudReport.find().sort({ reportedAt: -1 }).lean();
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        await connectMongoDB();
+        await dbConnect();
 
         const newReport = await FraudReport.create({
             barcode,

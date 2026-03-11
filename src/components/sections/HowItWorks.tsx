@@ -58,7 +58,7 @@ export const HowItWorks = () => {
             <span className="font-mono text-[10px] text-[#39FF14] tracking-[4px] uppercase mb-8">
               // MEDCHAIN_PROTOCOL_V4.0
             </span>
-            <h2 className="text-8xl md:text-[180px] font-bebas text-white leading-none tracking-tighter uppercase text-center relative z-10">
+            <h2 className="text-7xl md:text-[180px] font-bebas text-white leading-none tracking-tighter uppercase text-center relative z-10">
               SYSTEM <br />
               <span className="text-[#39FF14]">ARCHITECTURE_</span>
             </h2>
@@ -83,15 +83,15 @@ export const HowItWorks = () => {
                     </div>
                     
                     <div className="flex flex-col gap-4">
-                      <h3 className="text-5xl md:text-7xl lg:text-8xl font-bebas text-white uppercase tracking-[2px]">
+                      <h3 className="text-4xl md:text-7xl lg:text-8xl font-bebas text-white uppercase tracking-[2px]">
                         {step.title}
                       </h3>
-                      <p className="font-mono text-xs md:text-sm lg:text-base text-[#444] uppercase leading-relaxed max-w-xl">
+                      <p className="font-mono text-[10px] md:text-sm lg:text-base text-[#444] uppercase leading-relaxed max-w-xl">
                         {step.desc}
                       </p>
                     </div>
 
-                    <div className="p-4 border border-[#0E0E0E] bg-[#060606] font-mono text-[9px] text-[#39FF14] tracking-[3px] w-fit">
+                    <div className="p-3 md:p-4 border border-[#0E0E0E] bg-[#060606] font-mono text-[8px] text-[#39FF14] tracking-[3px] w-fit">
                       {step.stats}
                     </div>
                   </div>

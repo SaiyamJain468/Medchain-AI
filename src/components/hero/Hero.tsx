@@ -48,15 +48,15 @@ export const Hero = () => {
           </Badge>
         </motion.div>
 
-        <div className="flex flex-col items-center mb-8">
-          <h1 className="text-7xl md:text-[140px] font-bebas leading-[0.85] text-white tracking-tighter">
+        <div className="flex flex-col items-center mb-8 px-4 w-full">
+          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[140px] font-bebas text-white break-words text-center leading-[0.9]">
             {title1 || "COUNTERFEIT"}
           </h1>
-          <h1 className="text-7xl md:text-[140px] font-bebas leading-[0.85] text-[#39FF14] tracking-tighter">
+          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[140px] font-bebas text-[#39FF14] break-words text-center leading-[0.9]">
             {title2 || "MEDICINES"}
           </h1>
           <h2 
-            className="text-3xl md:text-6xl font-bebas text-[#444] mt-4 glitch-text"
+            className="text-3xl sm:text-5xl md:text-6xl font-bebas text-[#444] mt-4 glitch-text"
             data-text="end here."
           >
             end here.
@@ -77,31 +77,31 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
-          className="flex flex-wrap justify-center gap-6"
+          className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 w-full max-w-sm sm:max-w-none px-4"
         >
-          <Link href="/scan">
-            <Button size="lg" className="px-12 h-16 text-lg group">
+          <Link href="/scan" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto px-8 sm:px-12 h-14 sm:h-16 text-base sm:text-lg group">
               START SCANNING <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" />
             </Button>
           </Link>
-          <Button variant="ghost" size="lg" className="px-12 h-16 text-lg">
+          <Button variant="ghost" size="lg" className="w-full sm:w-auto px-8 sm:px-12 h-14 sm:h-16 text-base sm:text-lg">
             HOW IT WORKS
           </Button>
         </motion.div>
       </div>
 
       {/* BOTTOM TICKER / DECORATION */}
-      <div className="absolute bottom-12 left-0 w-full px-8 flex justify-between items-end z-10">
+      <div className="absolute bottom-6 sm:bottom-12 left-0 w-full px-4 sm:px-8 flex flex-col sm:flex-row justify-center sm:justify-between items-center sm:items-end gap-4 z-10 hidden sm:flex">
         <div className="hidden md:flex flex-col gap-1 font-mono text-[7px] text-[#1A1A1A]">
           <div>// BLOCK_HASH: 0x4f9a...2b1c</div>
           <div>// TIMESTAMP: 2026-03-12T14:32:07Z</div>
         </div>
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-2 font-mono text-[9px] text-[#444]">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8">
+          <div className="flex items-center gap-2 font-mono text-[9px] text-[#444] whitespace-nowrap">
             <Globe size={12} className="text-[#39FF14]" />
             GLOBAL REACH
           </div>
-          <div className="flex items-center gap-2 font-mono text-[9px] text-[#444]">
+          <div className="flex items-center gap-2 font-mono text-[9px] text-[#444] whitespace-nowrap">
             <ShieldCheck size={12} className="text-[#39FF14]" />
             IMMUTABLE LEDGER
           </div>

@@ -16,11 +16,11 @@ export default function LandingPage() {
       <Hero />
 
       {/* --- PHASE 3: PROBLEM SECTION --- */}
-      <section className="relative py-32 px-6 border-t border-[#0E0E0E]">
+      <section className="relative py-20 md:py-32 px-6 border-t border-[#0E0E0E]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 mb-20">
+          <div className="flex flex-col gap-4 mb-12 md:mb-20">
             <Tag>SYSTEM_THREAT_REPORT</Tag>
-            <h2 className="text-6xl md:text-[100px] font-bebas text-white leading-none tracking-tighter uppercase">
+            <h2 className="text-large font-bebas text-white">
               THE PROBLEM IS <br />
               <span className="text-[#FF006E] glitch-text" data-text="FATAL_FOR_MILLIONS_">FATAL_FOR_MILLIONS_</span>
             </h2>
@@ -97,16 +97,16 @@ export default function LandingPage() {
       <HowItWorks />
 
       {/* --- CTA SECTION --- */}
-      <section className="relative py-48 px-6 bg-[#030303] border-t border-[#0E0E0E] overflow-hidden">
+      <section className="relative py-32 md:py-48 px-6 bg-[#030303] border-t border-[#0E0E0E] overflow-hidden">
         {/* BIG BG TEXT */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bebas text-[300px] text-[#050505] pointer-events-none select-none z-0 opacity-50">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bebas text-[150px] md:text-[300px] text-[#050505] pointer-events-none select-none z-0 opacity-50">
           MEDCHAIN
         </div>
         
         <div className="max-w-7xl mx-auto text-center flex flex-col items-center gap-10 relative z-10">
-          <h2 className="text-7xl md:text-[140px] font-bebas text-white leading-[0.85] tracking-tighter uppercase">
+          <h2 className="text-large md:text-[140px] font-bebas text-white leading-[0.85] tracking-tighter uppercase">
             THE ANTIDOTE <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: '2px #39FF14' }}>IS HERE.</span>
+            <span className="text-transparent" style={{ WebkitTextStroke: '1px #39FF14' }}>IS HERE.</span>
           </h2>
           
           <p className="font-mono text-sm md:text-lg text-[#444] uppercase tracking-[4px] max-w-2xl">

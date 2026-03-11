@@ -30,18 +30,50 @@ export const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.pageYOffset;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'scroll'; // Prevent layout shift from scrollbar disappearing
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflowY = '';
+      
+      if (scrollY) {
+        const top = Math.abs(parseInt(scrollY, 10));
+        window.scrollTo(0, top);
+      }
+    }
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflowY = '';
+      if (scrollY) {
+        const top = Math.abs(parseInt(scrollY, 10));
+        window.scrollTo(0, top);
+      }
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 border-b ${
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 border-b h-16 md:h-auto ${
         isScrolled 
-          ? "bg-[#020202]/95 backdrop-blur-md py-3 border-[#0E0E0E]" 
-          : "bg-transparent py-6 border-transparent"
+          ? "bg-[#020202]/95 backdrop-blur-md border-[#0E0E0E] py-3 md:py-3" 
+          : "bg-transparent border-transparent py-4 md:py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="h-full max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative">
@@ -79,6 +111,7 @@ export const Navbar: React.FC = () => {
             <button 
               onClick={() => setIsMuted(!isMuted)}
               className="text-[#333] hover:text-[#39FF14] transition-colors"
+              aria-label={isMuted ? "Unmute interface" : "Mute interface"}
             >
               {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
             </button>
@@ -94,20 +127,29 @@ export const Navbar: React.FC = () => {
         <button 
           className="md:hidden text-[#39FF14]"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="fixed inset-0 bg-[#020202] z-[90] flex flex-col items-center justify-center gap-8 p-6 md:hidden overflow-hidden"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-[#020202] z-[200] flex flex-col items-center justify-center gap-6 p-6 md:hidden overflow-hidden"
           >
+            <button 
+              className="absolute top-8 right-8 text-[#39FF14]"
+              onClick={() => setIsOpen(false)}
+            >
+              <X size={32} />
+            </button>
+
             <div className="absolute top-8 left-8">
                <ShieldCheck className="w-10 h-10 text-[#39FF14]" />
             </div>
@@ -115,24 +157,26 @@ export const Navbar: React.FC = () => {
             {NAV_LINKS.map((link, idx) => (
               <motion.div
                 key={link.path}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: idx * 0.05 }}
               >
                 <Link 
                   href={link.path}
-                  className="font-bebas text-5xl uppercase text-[#444] hover:text-[#39FF14] transition-colors"
+                  className="font-bebas text-4xl uppercase text-[#444] hover:text-[#39FF14] transition-colors"
                 >
                   {link.name}
                 </Link>
               </motion.div>
             ))}
             
-            <Link href="/scan" className="w-full max-w-xs mt-8">
-              <Button fullWidth size="lg">
-                ACCESS SCANNER
-              </Button>
-            </Link>
+            <div className="w-full max-w-xs mt-6 pt-6 border-t border-[#1A1A1A]">
+              <Link href="/scan" className="w-full">
+                <Button fullWidth size="md">
+                  ACCESS SCANNER
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

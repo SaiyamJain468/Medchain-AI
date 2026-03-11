@@ -106,29 +106,29 @@ export default function FraudMapPage() {
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
       {/* HUD OVERLAY - TOP BAR */}
-      <header className="absolute top-0 left-0 right-0 h-16 bg-[#040404]/80 backdrop-blur-md border-b border-[#0E0E0E] z-50 px-6 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link href="/dashboard" className="flex items-center gap-2 text-[#444] hover:text-[#39FF14] transition-colors group">
+      <header className="absolute top-0 left-0 right-0 h-16 bg-[#040404]/80 backdrop-blur-md border-b border-[#0E0E0E] z-50 px-4 sm:px-6 flex items-center justify-between">
+        <div className="flex items-center gap-3 sm:gap-6">
+          <Link href="/dashboard" className="flex items-center gap-2 text-[#444] hover:text-[#39FF14] transition-colors group relative z-[60]">
             <ChevronLeft size={16} />
-            <span className="text-[10px] font-bold tracking-[2px]">RETURN_TO_BASE</span>
+            <span className="hidden sm:inline text-[10px] font-bold tracking-[2px]">RETURN_TO_BASE</span>
           </Link>
           <div className="w-px h-6 bg-[#0E0E0E]" />
           <div className="flex flex-col min-w-0">
-            <h1 className="text-xs md:text-sm font-bebas tracking-[1px] text-white">FRAUD_INTELLIGENCE_SYSTEM</h1>
-            <span className="text-[7px] md:text-[8px] text-[#39FF14] tracking-[1px] animate-pulse">ACTIVE_SURVEILLANCE_NODE_V4.2</span>
+            <h1 className="text-[10px] sm:text-xs md:text-sm font-bebas tracking-[1px] text-white truncate">FRAUD_INTELLIGENCE_SYSTEM</h1>
+            <span className="text-[6px] sm:text-[7px] md:text-[8px] text-[#39FF14] tracking-[1px] animate-pulse truncate">ACTIVE_SURVEILLANCE_NODE_V4.2</span>
           </div>
         </div>
-        <div className="flex items-center gap-8">
-          <div className="flex flex-col items-end">
+        <div className="flex items-center gap-4 sm:gap-8">
+          <div className="hidden md:flex flex-col items-end">
             <span className="text-[8px] text-[#333]">LIVE_NODES</span>
             <span className="text-[10px] text-[#39FF14]">14_STABLE</span>
           </div>
-          <div className="flex flex-col items-end">
+          <div className="hidden md:flex flex-col items-end">
             <span className="text-[8px] text-[#333]">SYS_LATENCY</span>
             <span className="text-[10px] text-[#39FF14]">0.04ms</span>
           </div>
-          <div className="w-px h-6 bg-[#0E0E0E]" />
-          <Settings size={14} className="text-[#333] cursor-pointer hover:text-white" />
+          <div className="hidden md:block w-px h-6 bg-[#0E0E0E]" />
+          <Settings size={14} className="text-[#333] cursor-pointer hover:text-white relative z-[60]" />
         </div>
       </header>
 
