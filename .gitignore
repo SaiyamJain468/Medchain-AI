@@ -1,0 +1,57 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# Python service
+/pill-recognition-service/venv/
+/pill-recognition-service/__pycache__/
+/pill-recognition-service/venv.zip
+
+# misc
+.DS_Store
+*.pem
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env*.local
+
+# vercel / netlify
+.vercel
+.netlify
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Hardhat / Blockchain
+/artifacts/
+/cache/
+/typechain/
+/typechain-types/
+
+# Extra files
+/Extra/
+/eslint-output.json
+/eslint-compact.txt
+/eslint.json
+/eslint.log
+/eslint_summary.txt
+/ts_errors.log
+/lint_output.txt
+/parse_eslint.js
