@@ -41,10 +41,10 @@ export async function POST(req: Request) {
             { message: "User registered successfully", user: { id: newUser._id, email: newUser.email, role: newUser.role } },
             { status: 201 }
         );
-    } catch (error) {
+    } catch (error: any) {
         console.error("Registration error:", error);
         return NextResponse.json(
-            { message: "An error occurred during registration." },
+            { message: "An error occurred during registration.", errorDetails: error?.message || String(error) },
             { status: 500 }
         );
     }
